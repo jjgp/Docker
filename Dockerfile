@@ -36,7 +36,6 @@ RUN wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/i
 
 # vundle & vim
 COPY .vimrc /root
-RUN vim -E -c PlugInstall -c qall > /dev/null
 
 # dotfiles
 COPY .gitconfig /root
