@@ -6,7 +6,7 @@ plugins=(git gitfast tmux)
 alias c="clear"
 alias up="cd .."
 
-export ANACONDA="~/anaconda/bin"
-export PATH="$ANACONDA:$PATH"
+export CONDA="/opt/conda/bin"
+export PATH="$CONDA:$PATH"
 
 [ -s "/usr/share/autojump/autojump.sh" ] && . "/usr/share/autojump/autojump.sh"

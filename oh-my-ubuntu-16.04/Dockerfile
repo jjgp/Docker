@@ -26,9 +26,9 @@ ENV LANGUAGE=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 
 # anaconda
-RUN wget https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh
-RUN bash Anaconda2-5.0.1-Linux-x86_64.sh -b -p ~/anaconda
-RUN rm Anaconda2-5.0.1-Linux-x86_64.sh
+RUN wget https://repo.continuum.io/miniconda/Miniconda2-4.3.31-Linux-x86_64.sh
+RUN bash Miniconda2-4.3.31-Linux-x86_64.sh -b -p /opt/conda
+RUN rm Miniconda2-4.3.31-Linux-x86_64.sh
 
 # oh my zsh
 RUN wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | zsh || true
@@ -40,6 +40,8 @@ RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 COPY .vimrc /root
 RUN vim -c PlugInstall -c qall ; return 0
 
+# tmux
+COPY .tmux.conf /root
 
 ENV TERM=xterm-256color
 
