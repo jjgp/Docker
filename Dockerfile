@@ -34,7 +34,7 @@ RUN rm Anaconda2-5.0.1-Linux-x86_64.sh
 RUN wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | zsh || true
 COPY .zshrc /root
 
-# vundle & vim
+# vim plug & vim
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 COPY .vimrc /root
