@@ -32,6 +32,7 @@ RUN rm Anaconda2-5.0.1-Linux-x86_64.sh
 
 # oh my zsh
 RUN wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | zsh || true
+COPY .zshrc /root
 
 # vundle & vim
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -39,9 +40,6 @@ RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 COPY .vimrc /root
 RUN vim -c PlugInstall -c qall ; return 0
 
-# dotfiles
-COPY .gitconfig /root
-COPY .zshrc /root
 
 ENV TERM=xterm-256color
 
