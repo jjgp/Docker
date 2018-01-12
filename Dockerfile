@@ -1,9 +1,8 @@
 FROM ubuntu:16.04
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV TERM=xterm-256color
+ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
     autojump \
     build-essential \
     clang \
@@ -38,11 +37,13 @@ RUN wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/i
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 COPY .vimrc /root
-RUN vim -E -c PlugInstall -c qall > /dev/null || true
+RUN vim -c PlugInstall -c qall ; return 0
 
 # dotfiles
 COPY .gitconfig /root
 COPY .zshrc /root
+
+ENV TERM=xterm-256color
 
 WORKDIR /root
 ENTRYPOINT zsh

@@ -2,7 +2,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'valloric/youcompleteme',  { 'do': './install.py --clang-completer --system-libclang' }
+Plug 'Valloric/YouCompleteMe',  { 'do': './install.py --clang-completer --system-libclang' }
 Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
